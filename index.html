@@ -1,0 +1,52 @@
+const word = "بحبك ❤️";
+const count = 2000;
+
+document.body.innerHTML = "";
+
+document.body.style.cssText = `
+  background: #080808;
+  color: #ff4d88;
+  font-family: Arial;
+  text-align: center;
+  padding: 20px;
+`;
+
+const title = document.createElement("h1");
+title.innerText = "2000 مرة بحبك ❤️";
+document.body.appendChild(title);
+
+const container = document.createElement("div");
+
+container.style.cssText = `
+  font-size: 22px;
+  line-height: 2;
+`;
+
+document.body.appendChild(container);
+
+for (let i = 1; i <= count; i++) {
+    const line = document.createElement("div");
+
+    line.innerText = `${i} - ${word}`;
+
+    line.style.animation = `fade 1s ease ${i * 0.01}s both`;
+
+    container.appendChild(line);
+}
+
+const style = document.createElement("style");
+
+style.innerHTML = `
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+`;
+
+document.head.appendChild(style);
